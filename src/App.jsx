@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
@@ -7,45 +7,36 @@ import Hero from "./components/Hero.jsx";
 import Projects from "./components/Projects.jsx";
 import Skills from "./components/Skills.jsx";
 
-function getInitialTheme() {
-  try {
-    const savedTheme = window.localStorage.getItem("portfolio-theme");
-    if (savedTheme === "dark" || savedTheme === "light") return savedTheme;
-  } catch {
-    // The default theme remains available if browser storage is disabled.
-  }
-
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-}
-
 export default function App() {
-  const [theme, setTheme] = useState(getInitialTheme);
-
   useEffect(() => {
-    document.documentElement.dataset.theme = theme;
+    // Clear any previous dark mode settings
+    document.documentElement.classList.remove("dark");
+    delete document.documentElement.dataset.theme;
     try {
-      window.localStorage.setItem("portfolio-theme", theme);
+      window.localStorage.removeItem("portfolio-theme");
     } catch {
-      // Theme switching still works for this page when storage is unavailable.
+      // Storage unavailable
     }
-  }, [theme]);
+  }, []);
 
   return (
-    <>
-      <a className="skip-link" href="#main-content">
+    <div
+      className="min-h-screen text-slate-900 bg-repeat bg-fixed bg-top"
+      style={{
+        backgroundImage: "url('/assets/background.jpg')",
+        backgroundSize: "50% auto",
+      }}
+    >
+      <a
+        className="sr-only fixed top-4 left-4 z-50 rounded-lg bg-black px-4 py-2 font-medium text-white shadow-lg focus:not-sr-only"
+        href="#main-content"
+      >
         Skip to content
       </a>
-      <Header
-        theme={theme}
-        onToggleTheme={() =>
-          setTheme((currentTheme) => (currentTheme === "light" ? "dark" : "light"))
-        }
-      />
+      <Header />
       <main id="main-content">
         <Hero />
-        <div className="main-content">
+        <div className="flex flex-col">
           <About />
           <Skills />
           <Projects />
@@ -53,6 +44,6 @@ export default function App() {
         </div>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }
