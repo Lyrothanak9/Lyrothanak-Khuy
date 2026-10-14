@@ -1,123 +1,96 @@
-import SectionHeading from "./SectionHeading.jsx";
 import { profile } from "../data/portfolio.js";
 
-const facts = [
-  { label: "Location", value: profile.location, icon: "location_on" },
-  { label: "Phone", value: profile.phone, icon: "call" },
-  { label: "Email", value: profile.email, icon: "mail" },
+const aboutCards = [
+  {
+    label: "STUDYING",
+    value: "IT Engineering, year 3, RUPP",
+    id: "education",
+  },
+  {
+    label: "BASED IN",
+    value: "Phnom Penh, Cambodia",
+  },
+  {
+    label: "WORKS ACROSS",
+    value: "Mobile, web and backend",
+  },
+  {
+    label: "OBJECTIVE",
+    value: "Clean, high-impact digital products",
+  },
 ];
 
 export default function About() {
   return (
     <section
-      className="mx-auto w-[min(1160px,calc(100%-48px))] border-t border-slate-200/80 pt-8 pb-16 md:pt-10 md:pb-20 scroll-mt-20"
+      className="mx-auto w-[min(1160px,calc(100%-48px))] border-t border-slate-200/80 pt-10 pb-16 md:pt-14 md:pb-20 scroll-mt-20 text-slate-900"
       id="about"
+      aria-label="About Me Section"
     >
-      <SectionHeading eyebrow="A little about me">About me</SectionHeading>
-      <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.65fr)_minmax(280px,0.75fr)]">
-        <div>
-          <p className="text-xl font-medium leading-relaxed tracking-tight text-slate-800 sm:text-2xl">
-            Hello! I&apos;m Khuy Lyrothanak, an IT Engineering student at the
-            Royal University of Phnom Penh. I enjoy building applications and
-            learning new technologies, especially in mobile app development.
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-slate-600">
-            I care about clean, simple, and user-friendly design. My goal is to
-            keep growing as a developer and create useful applications that
-            make everyday tasks easier.
-          </p>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <article
-              className="flex gap-4 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition hover:shadow-md"
-              id="education"
-            >
-              <span
-                className="grid h-12 w-12 flex-none place-items-center rounded-xl bg-black text-white"
-                aria-hidden="true"
-              >
-                <span className="material-symbols-outlined">school</span>
-              </span>
-              <div>
-                <h3 className="text-base font-semibold text-slate-900">
-                  Education
-                </h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
-                  Information Technology Engineering
-                  <br />
-                  Royal University of Phnom Penh
-                </p>
-              </div>
-            </article>
+      {/* Header Row: ABOUT + Subtitle matching sample */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200/90 pb-4 mb-8 sm:mb-12">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 leading-none">
+          ABOUT
+        </h2>
+        <span className="font-mono text-xs uppercase tracking-[0.2em] text-slate-500 font-medium">
+          WHO I AM / PHNOM PENH, CAMBODIA
+        </span>
+      </div>
 
-            <article className="flex gap-4 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition hover:shadow-md">
-              <span
-                className="grid h-12 w-12 flex-none place-items-center rounded-xl bg-black text-white"
-                aria-hidden="true"
-              >
-                <span className="material-symbols-outlined">my_location</span>
-              </span>
-              <div>
-                <h3 className="text-base font-semibold text-slate-900">
-                  My objective
-                </h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
-                  Contribute my technical skills to a professional team and help
-                  create useful software.
-                </p>
-              </div>
-            </article>
-          </div>
+      {/* Main 2-Column Grid */}
+      <div className="grid items-start gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
+        
+        {/* Left Column: Bio Narrative with highlighted bold terms */}
+        <div className="flex flex-col gap-5">
+          <p className="text-lg sm:text-xl font-normal leading-relaxed text-slate-800">
+            Hello! I&apos;m Khuy Lyrothanak, an IT Engineering student at the{" "}
+            <strong className="font-bold text-slate-900">
+              Royal University of Phnom Penh (RUPP)
+            </strong>{" "}
+            specializing in mobile application and web development. I love
+            turning complex technical challenges into intuitive, high-performing
+            digital experiences.
+          </p>
+
+          <p className="text-sm sm:text-base leading-relaxed text-slate-600">
+            Good interfaces tell stories, and so does good code. My work joins
+            structured engineering thinking with user-focused design to build
+            software that makes everyday workflows simpler and faster.
+          </p>
         </div>
 
-        <aside
-          className="rounded-3xl border border-slate-200/90 bg-white p-6 shadow-sm"
-          aria-labelledby="quick-contact-title"
-        >
-          <div className="flex items-center gap-2.5 text-base font-semibold text-slate-900">
-            <span
-              className="material-symbols-outlined text-black"
-              aria-hidden="true"
+        {/* Right Column: 2x2 Grid of Spec Cards with ┌ and ┘ brackets */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {aboutCards.map(({ label, value, id }) => (
+            <div
+              key={label}
+              id={id}
+              className="relative flex flex-col justify-between border border-slate-200/90 bg-white p-4 sm:p-5 shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
             >
-              contact_page
-            </span>
-            <h3 id="quick-contact-title">Quick contact</h3>
-          </div>
+              {/* Top-left corner bracket ┌ */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-[2px] -left-[2px] h-2.5 w-2.5 border-t-[2px] border-l-[2px] border-slate-900"
+              />
 
-          <dl className="mt-6 divide-y divide-slate-100">
-            {facts.map(({ label, value, icon }) => (
-              <div className="py-3 first:pt-0 last:pb-0" key={label}>
-                <dt className="flex items-center gap-2 font-mono text-[11px] font-medium uppercase tracking-wider text-slate-400">
-                  <span className="material-symbols-outlined text-base!" aria-hidden="true">
-                    {icon}
-                  </span>
-                  {label}
-                </dt>
-                <dd className="mt-1 text-sm font-medium text-slate-800">
-                  {label === "Email" ? (
-                    <a
-                      href={`mailto:${value}`}
-                      className="text-black font-semibold hover:underline"
-                    >
-                      {value}
-                    </a>
-                  ) : (
-                    value
-                  )}
-                </dd>
-              </div>
-            ))}
-          </dl>
+              {/* Bottom-right corner bracket ┘ */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-[2px] -right-[2px] h-2.5 w-2.5 border-b-[2px] border-r-[2px] border-slate-900"
+              />
 
-          <a
-            className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-black transition hover:gap-2 hover:text-neutral-700"
-            href={`mailto:${profile.email}`}
-          >
-            Say hello
-            <span className="material-symbols-outlined text-base!" aria-hidden="true">
-              arrow_outward
-            </span>
-          </a>
-        </aside>
+              {/* Card Label */}
+              <span className="block font-mono text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+                {label}
+              </span>
+
+              {/* Card Content Value */}
+              <p className="mt-3 font-mono text-xs sm:text-[13px] font-semibold text-slate-800 leading-snug">
+                {value}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

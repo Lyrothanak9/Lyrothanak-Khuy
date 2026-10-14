@@ -1,143 +1,133 @@
-import { useState } from "react";
-import SectionHeading from "./SectionHeading.jsx";
-import { profile } from "../data/portfolio.js";
+import { profile, navigation } from "../data/portfolio.js";
 
-const MESSAGE_LIMIT = 500;
+const contactLinks = [
+  {
+    label: "EMAIL",
+    value: profile.email,
+    href: `mailto:${profile.email}`,
+  },
+  {
+    label: "GITHUB",
+    value: "github.com/Lyrothanak9",
+    href: "https://github.com/Lyrothanak9",
+  },
+  {
+    label: "LINKEDIN",
+    value: "linkedin.com/in/khuy-lyrothanak",
+    href: "https://www.linkedin.com",
+  },
+  {
+    label: "FACEBOOK",
+    value: "facebook.com/khuy.lyrothanak",
+    href: "https://www.facebook.com",
+  },
+  {
+    label: "TELEGRAM",
+    value: "t.me/lyrothanak",
+    href: "https://t.me/lyrothanak",
+  },
+];
 
 export default function Contact() {
-  const [message, setMessage] = useState("");
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const subject = encodeURIComponent(formData.get("subject"));
-    const body = encodeURIComponent(
-      `From: ${formData.get("name")} (${formData.get("email")})\n\n${formData.get("message")}`,
-    );
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
-  }
-
   return (
     <section
-      className="mx-auto w-[min(1160px,calc(100%-48px))] border-t border-slate-200/80 pt-20 pb-24 scroll-mt-20"
+      className="relative w-full border-t border-slate-200/80 pt-16 pb-12 sm:pt-24 sm:pb-16 overflow-hidden scroll-mt-12 text-slate-900"
       id="contact"
+      aria-label="Contact Section"
     >
-      <SectionHeading eyebrow="Have an idea in mind?">Let&apos;s talk</SectionHeading>
-      <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-        <div>
-          <h3 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Let&apos;s discuss your project.
-          </h3>
-          <p className="mt-4 max-w-lg text-base leading-relaxed text-slate-600">
-            I&apos;m open to opportunities and new ideas. Have a question or
-            just want to say hi? Send me a message.
-          </p>
+      {/* Background Radar / Concentric Rings matching the sample, adapted to the paper background */}
+      <div
+        className="pointer-events-none absolute inset-0 select-none overflow-hidden"
+        aria-hidden="true"
+      >
+        <svg
+          className="absolute -left-[15%] top-1/2 -translate-y-1/2 h-[950px] w-[950px] opacity-[0.08]"
+          viewBox="0 0 800 800"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="360" cy="400" r="90" stroke="#0f172a" strokeWidth="1.2" strokeDasharray="3 4" />
+          <circle cx="360" cy="400" r="160" stroke="#0f172a" strokeWidth="1.2" />
+          <circle cx="360" cy="400" r="240" stroke="#0f172a" strokeWidth="1.2" strokeDasharray="4 4" />
+          <circle cx="360" cy="400" r="320" stroke="#0f172a" strokeWidth="1.2" />
+          <circle cx="360" cy="400" r="410" stroke="#0f172a" strokeWidth="1.2" strokeDasharray="5 5" />
+          <circle cx="360" cy="400" r="500" stroke="#0f172a" strokeWidth="1.2" />
+          <circle cx="360" cy="400" r="600" stroke="#0f172a" strokeWidth="1.2" strokeDasharray="4 4" />
+          <circle cx="360" cy="400" r="700" stroke="#0f172a" strokeWidth="1.2" />
+        </svg>
+      </div>
 
-          <a
-            className="group mt-6 flex w-full max-w-lg items-center justify-between rounded-2xl border border-slate-200/80 bg-white p-4 shadow-sm transition hover:border-black/30 hover:shadow-md"
-            href={`mailto:${profile.email}`}
-          >
-            <div className="flex items-center gap-4">
-              <span
-                className="grid h-12 w-12 place-items-center rounded-xl bg-black text-white"
-                aria-hidden="true"
+      <div className="relative z-10 mx-auto w-[min(1240px,calc(100%-48px))]">
+        {/* Main Grid: Left Typography + Right Channel Links */}
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+          
+          {/* Left Column: Huge Headline & Subtitle */}
+          <div>
+            <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7.2rem] font-black uppercase tracking-tight text-slate-900 leading-[0.88] select-none">
+              LET&apos;S
+              <br />
+              WORK.
+            </h2>
+            <p className="font-mono text-xs sm:text-sm text-slate-600 mt-6 sm:mt-8 max-w-md leading-relaxed tracking-wide">
+              I&apos;m open to projects, collaborations and internships.
+            </p>
+          </div>
+
+          {/* Right Column: Contact Links List with Clean Dividers */}
+          <div className="flex flex-col border-t border-slate-300 pt-1">
+            {contactLinks.map(({ label, value, href }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="group flex items-center justify-between py-4 sm:py-5 border-b border-slate-300 transition-colors hover:border-black"
               >
-                <span className="material-symbols-outlined">mail</span>
-              </span>
-              <div>
-                <small className="block font-mono text-[10px] uppercase tracking-wider text-slate-400">
-                  Email me
-                </small>
-                <strong className="block text-base font-semibold text-slate-900">
-                  {profile.email}
-                </strong>
-              </div>
-            </div>
-            <span
-              className="material-symbols-outlined text-xl! text-slate-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-black"
-              aria-hidden="true"
-            >
-              arrow_outward
-            </span>
-          </a>
-
-          <div className="mt-6 inline-flex items-center gap-2 text-sm text-slate-600">
-            <span className="inline-block h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
-            Available for new projects
+                <span className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 group-hover:text-black transition-colors">
+                  {label}
+                </span>
+                <span className="font-mono text-xs sm:text-sm font-semibold text-slate-800 group-hover:text-[#0891b2] transition-colors inline-flex items-center gap-1.5">
+                  <span className="truncate max-w-[210px] sm:max-w-none">{value}</span>
+                  <span
+                    className="font-mono text-sm transition-transform duration-200 group-hover:translate-x-1 group-hover:text-black"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
+                </span>
+              </a>
+            ))}
           </div>
         </div>
 
-        <form
-          className="rounded-3xl border border-slate-200/80 bg-white p-6 shadow-sm sm:p-8"
-          onSubmit={handleSubmit}
-        >
-          <div className="grid gap-4 sm:grid-cols-2">
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600">
-              Name
-              <input
-                className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-sm font-normal text-slate-900 placeholder:text-slate-400 focus:border-black focus:bg-white focus:ring-2 focus:ring-black/10 focus:outline-none"
-                autoComplete="name"
-                name="name"
-                placeholder="Your name"
-                required
-              />
-            </label>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-slate-600">
-              Email
-              <input
-                className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-sm font-normal text-slate-900 placeholder:text-slate-400 focus:border-black focus:bg-white focus:ring-2 focus:ring-black/10 focus:outline-none"
-                autoComplete="email"
-                name="email"
-                placeholder="you@example.com"
-                required
-                type="email"
-              />
-            </label>
-          </div>
+        {/* Bottom Bar: Name, Floating Navigation Dock, Tech Credit */}
+        <div className="mt-20 sm:mt-24 border-t border-slate-200/80 pt-8 sm:pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+          {/* Left: Name */}
+          <span className="font-mono text-xs font-bold uppercase tracking-widest text-slate-700">
+            {profile.name}
+          </span>
 
-          <label className="mt-4 block text-xs font-semibold uppercase tracking-wider text-slate-600">
-            Subject
-            <input
-              className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-sm font-normal text-slate-900 placeholder:text-slate-400 focus:border-black focus:bg-white focus:ring-2 focus:ring-black/10 focus:outline-none"
-              name="subject"
-              placeholder="Project inquiry"
-              required
-            />
-          </label>
-
-          <label className="mt-4 block text-xs font-semibold uppercase tracking-wider text-slate-600">
-            <span className="flex items-center justify-between">
-              <span>Message</span>
-              <span className="font-mono text-xs font-normal text-slate-400">
-                {message.length} / {MESSAGE_LIMIT}
-              </span>
-            </span>
-            <textarea
-              className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50/70 px-4 py-3 text-sm font-normal text-slate-900 placeholder:text-slate-400 focus:border-black focus:bg-white focus:ring-2 focus:ring-black/10 focus:outline-none"
-              maxLength={MESSAGE_LIMIT}
-              name="message"
-              onChange={(event) => setMessage(event.target.value)}
-              placeholder="Tell me a little about what you have in mind..."
-              required
-              rows="5"
-              value={message}
-            />
-          </label>
-
-          <button
-            className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-black px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-neutral-800 hover:shadow-md cursor-pointer"
-            type="submit"
+          {/* Center: Floating Glass Navigation Pill Dock */}
+          <nav
+            className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 rounded-full bg-white/95 border border-slate-200/90 px-5 py-2 font-mono text-xs text-slate-700 shadow-md backdrop-blur-md"
+            aria-label="Footer navigation dock"
           >
-            Open email app
-            <span className="material-symbols-outlined text-lg!" aria-hidden="true">
-              send
-            </span>
-          </button>
+            {navigation.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                className="transition-colors hover:text-black font-medium"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
 
-          <p className="mt-3 text-center text-xs text-slate-500">
-            This form opens your default email app to send the message.
-          </p>
-        </form>
+          {/* Right: Built With Credits */}
+          <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-slate-500 text-center sm:text-right">
+            BUILT WITH REACT AND VITE IN PHNOM PENH
+          </span>
+        </div>
       </div>
     </section>
   );

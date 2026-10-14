@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { profile } from "../data/portfolio.js";
 
 /**
@@ -28,11 +27,6 @@ export const heroConfig = {
     },
   ],
 
-  // Bottom left toggle switch
-  toggleButton: {
-    label: "SHOW AURA",
-    sublabel: "Toggle aura glow",
-  },
 
   // Right column: HUD cards with corner brackets
   hudCards: {
@@ -71,7 +65,7 @@ export const heroConfig = {
  */
 function HudCard({ children, className = "" }) {
   return (
-    <div className={`relative p-4 sm:p-5 transition-all duration-200 ${className}`}>
+    <div className={`relative bg-white border border-slate-300/60 p-4 sm:p-5 transition-all duration-200 shadow-xs ${className}`}>
       {/* Top-left corner bracket */}
       <span
         aria-hidden="true"
@@ -99,8 +93,6 @@ function HudCard({ children, className = "" }) {
 }
 
 export default function Hero() {
-  const [auraActive, setAuraActive] = useState(false);
-
   return (
     <section
       className="relative w-full pt-8 pb-4 md:pt-12 md:pb-6 lg:pt-14 lg:pb-6 text-slate-900"
@@ -146,22 +138,8 @@ export default function Hero() {
              ========================================= */}
           <div className="relative flex justify-center self-center">
             <div className="relative w-full max-w-[320px] sm:max-w-[360px] md:max-w-[390px] lg:max-w-[410px]">
-              {/* Optional Aura Glow ring behind portrait when active */}
-              {auraActive && (
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -inset-3 -z-10 animate-pulse rounded-[32px] border-2 border-amber-400 bg-amber-400/10 shadow-[0_0_35px_rgba(251,191,36,0.45)] transition-all duration-300"
-                />
-              )}
-
               {/* Portrait Container with subtle card frame */}
-              <div
-                className={`relative overflow-hidden rounded-3xl border bg-white p-3 shadow-xl transition-all duration-300 ${
-                  auraActive
-                    ? "border-amber-400 shadow-[0_20px_45px_rgba(251,191,36,0.2)]"
-                    : "border-slate-200/90 hover:shadow-2xl"
-                }`}
-              >
+              <div className="relative overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-3 shadow-xl transition-all duration-300 hover:shadow-2xl">
                 <img
                   src={heroConfig.portrait}
                   alt={`${heroConfig.firstName} ${heroConfig.lastName} portrait`}
@@ -266,38 +244,10 @@ export default function Hero() {
         </div>
 
         {/* =========================================
-            BOTTOM BAR: Show Aura Toggle & View Projects CTA
+            BOTTOM BAR: View Projects CTA
            ========================================= */}
-        <div className="mt-4 flex flex-wrap items-center justify-between gap-6 border-t border-slate-200/80 pt-6">
-          {/* Bottom Left: Aura Switch Button */}
-          <button
-            type="button"
-            onClick={() => setAuraActive((prev) => !prev)}
-            className="group flex cursor-pointer items-center gap-3.5 text-left transition-opacity hover:opacity-85"
-            aria-pressed={auraActive}
-          >
-            <span
-              className={`grid h-11 w-11 place-items-center rounded-full border transition-all duration-300 ${
-                auraActive
-                  ? "border-amber-500 bg-amber-400 text-slate-900 shadow-md shadow-amber-400/30"
-                  : "border-slate-300 bg-white text-slate-700 hover:border-slate-900"
-              }`}
-            >
-              <span className="material-symbols-outlined text-[20px] transition-transform duration-300 group-hover:rotate-180">
-                swap_horiz
-              </span>
-            </span>
-            <div>
-              <span className="block font-mono text-xs font-bold tracking-wider text-slate-900 uppercase">
-                {heroConfig.toggleButton.label}
-              </span>
-              <span className="block text-[11px] font-medium text-slate-500">
-                {heroConfig.toggleButton.sublabel} {auraActive ? "(Active)" : "(Off)"}
-              </span>
-            </div>
-          </button>
-
-          {/* Bottom Right: VIEW PROJECTS CTA Button */}
+        <div className="mt-4 flex items-center justify-center border-t border-slate-200/80 pt-6">
+          {/* Centered: VIEW PROJECTS CTA Button */}
           <a
             href={heroConfig.cta.href}
             className="inline-flex items-center gap-2 border border-slate-800 bg-transparent px-5 py-2.5 font-mono text-xs font-bold tracking-wider text-slate-900 uppercase transition-all duration-200 hover:bg-black hover:text-white hover:border-black"
