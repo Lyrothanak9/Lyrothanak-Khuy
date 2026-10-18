@@ -3,6 +3,7 @@
 @theme {
   --color-primary: #000000;
   --color-primary-hover: #18181b;
+  --color-elevation-5: #f8fafc;
 }
 
 @layer base {

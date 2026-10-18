@@ -75,7 +75,7 @@ export const heroConfig = {
  */
 function HudCard({ children, className = "" }) {
   return (
-    <div className={`group relative bg-white border border-slate-300/80 p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#0891b2]/40 shadow-xs ${className}`}>
+    <div className={`group relative bg-slate-50 border border-slate-300/80 p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-[#0891b2]/40 shadow-[0_10px_25px_-5px_rgba(15,23,42,0.1),0_8px_10px_-6px_rgba(15,23,42,0.06)] ${className}`}>
       {/* Top-left corner bracket ┌ */}
       <span
         aria-hidden="true"
@@ -140,6 +140,33 @@ export default function Hero() {
                 </li>
               ))}
             </ul>
+
+            {/* CTA action buttons under Hero left column */}
+            <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
+              {/* VIEW PROJECTS CTA Button */}
+              <a
+                href={heroConfig.cta.href}
+                className="inline-flex items-center gap-2 border border-slate-800 bg-transparent px-5 py-2.5 font-mono text-xs font-bold tracking-wider text-slate-900 uppercase transition-all duration-200 hover:bg-black hover:text-white hover:border-black"
+              >
+                <span>{heroConfig.cta.label}</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                  north_east
+                </span>
+              </a>
+
+              {/* VIEW GITHUB CTA Button */}
+              <a
+                href={heroConfig.githubCta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-slate-800 bg-transparent px-5 py-2.5 font-mono text-xs font-bold tracking-wider text-slate-900 uppercase transition-all duration-200 hover:bg-black hover:text-white hover:border-black"
+              >
+                <span>{heroConfig.githubCta.label}</span>
+                <span className="material-symbols-outlined text-sm" aria-hidden="true">
+                  north_east
+                </span>
+              </a>
+            </div>
           </div>
 
           {/* =========================================
@@ -225,35 +252,6 @@ export default function Hero() {
               </div>
             </HudCard>
           </div>
-        </div>
-
-        {/* =========================================
-            BOTTOM BAR: View Projects & GitHub CTA
-           ========================================= */}
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-3 sm:gap-4 border-t border-slate-200/80 pt-6">
-          {/* VIEW PROJECTS CTA Button */}
-          <a
-            href={heroConfig.cta.href}
-            className="inline-flex items-center gap-2 border border-slate-800 bg-transparent px-5 py-2.5 font-mono text-xs font-bold tracking-wider text-slate-900 uppercase transition-all duration-200 hover:bg-black hover:text-white hover:border-black"
-          >
-            <span>{heroConfig.cta.label}</span>
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              north_east
-            </span>
-          </a>
-
-          {/* VIEW GITHUB CTA Button */}
-          <a
-            href={heroConfig.githubCta.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-slate-800 bg-transparent px-5 py-2.5 font-mono text-xs font-bold tracking-wider text-slate-900 uppercase transition-all duration-200 hover:bg-black hover:text-white hover:border-black"
-          >
-            <span>{heroConfig.githubCta.label}</span>
-            <span className="material-symbols-outlined text-sm" aria-hidden="true">
-              north_east
-            </span>
-          </a>
         </div>
       </div>
     </section>

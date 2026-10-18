@@ -14,7 +14,7 @@ export default function Skills() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {skills.map(({ name, icon }, index) => (
           <article
-            className="group flex items-center gap-4 rounded-2xl border border-slate-200/80 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-black/30 hover:shadow-md"
+            className="group flex items-center gap-4 rounded-2xl border border-slate-200/80 bg-slate-50 p-5 shadow-[0_10px_25px_-5px_rgba(15,23,42,0.08),0_6px_10px_-6px_rgba(15,23,42,0.05)] transition-all duration-200 hover:-translate-y-1 hover:border-black/30 hover:shadow-xl"
             key={name}
           >
             <span className="font-mono text-xs font-semibold text-slate-400">
