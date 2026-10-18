@@ -1,4 +1,4 @@
-import { profile, navigation } from "../data/portfolio.js";
+import { profile } from "../data/portfolio.js";
 
 const contactLinks = [
   {
@@ -14,12 +14,12 @@ const contactLinks = [
   {
     label: "LINKEDIN",
     value: "linkedin.com/in/khuy-lyrothanak",
-    href: "https://www.linkedin.com",
+    href: "https://www.linkedin.com/in/khuy-lyrothanak",
   },
   {
     label: "FACEBOOK",
     value: "facebook.com/khuy.lyrothanak",
-    href: "https://www.facebook.com",
+    href: "https://www.facebook.com/khuy.lyrothanak",
   },
   {
     label: "TELEGRAM",
@@ -100,28 +100,12 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Bottom Bar: Name, Floating Navigation Dock, Tech Credit */}
-        <div className="mt-20 sm:mt-24 border-t border-slate-200/80 pt-8 sm:pt-10 flex flex-col sm:flex-row items-center justify-between gap-6">
+        {/* Bottom Bar: Name & Tech Credit */}
+        <div className="mt-20 sm:mt-24 border-t border-slate-200/80 pt-8 sm:pt-10 flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Left: Name */}
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-slate-700">
             {profile.name}
           </span>
-
-          {/* Center: Floating Glass Navigation Pill Dock */}
-          <nav
-            className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 rounded-full bg-white/95 border border-slate-200/90 px-5 py-2 font-mono text-xs text-slate-700 shadow-md backdrop-blur-md"
-            aria-label="Footer navigation dock"
-          >
-            {navigation.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                className="transition-colors hover:text-black font-medium"
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
 
           {/* Right: Built With Credits */}
           <span className="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-slate-500 text-center sm:text-right">

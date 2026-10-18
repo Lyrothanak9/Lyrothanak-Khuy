@@ -24,7 +24,7 @@ export default function Skills() {
               className="grid h-11 w-11 flex-none place-items-center rounded-xl bg-slate-100 text-slate-800 transition-colors group-hover:bg-black group-hover:text-white"
               aria-hidden="true"
             >
-              <span className="material-symbols-outlined text-xl!">{icon}</span>
+              <span className="material-symbols-outlined text-xl">{icon}</span>
             </span>
             <h3 className="text-sm font-semibold text-slate-900">
               {name}

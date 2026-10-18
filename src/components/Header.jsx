@@ -1,80 +1,54 @@
-import { useState } from "react";
-import { navigation, profile } from "../data/portfolio.js";
+import { profile } from "../data/portfolio.js";
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const closeMenu = () => setMenuOpen(false);
-
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/80 backdrop-blur-md">
+    <header className="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
       <nav
-        className="mx-auto flex h-20 w-[min(1280px,calc(100%-48px))] items-center justify-between"
-        aria-label="Main navigation"
+        className="pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 md:gap-10 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-full shadow-[0_12px_36px_rgba(0,0,0,0.08)] border border-slate-100/90 max-w-[720px] w-full transition-all"
+        aria-label="Main Navigation"
       >
+        {/* Name / Brand */}
         <a
-          className="group inline-flex items-center gap-3 text-sm font-bold tracking-tight text-slate-900"
           href="#home"
-          onClick={closeMenu}
+          className="text-xs sm:text-sm font-extrabold tracking-wider uppercase text-[#0a1128] hover:text-black transition-colors whitespace-nowrap"
         >
-          <span
-            className="grid h-9 w-9 place-items-center rounded-xl border border-black bg-black font-mono text-sm font-bold tracking-tight text-white transition-transform group-hover:scale-105"
-            aria-hidden="true"
-          >
-            KL
-          </span>
-          <span>{profile.name}</span>
+          <span className="hidden sm:inline">{profile.name.toUpperCase()}</span>
+          <span className="sm:hidden font-black tracking-tight">K. LYROTHANAK</span>
         </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden items-center gap-7 font-mono text-xs font-medium tracking-wide text-slate-600 md:flex lg:gap-9">
-          {navigation.map(({ label, href }) => (
-            <a
-              href={href}
-              key={href}
-              className="transition-colors hover:text-black"
-              onClick={closeMenu}
-            >
-              {label}
-            </a>
-          ))}
-        </div>
-
-        <div className="flex items-center gap-2">
-          {/* Mobile Menu Toggle Button */}
-          <button
-            className="grid h-10 w-10 place-items-center rounded-xl border border-slate-200/80 bg-white/50 text-slate-600 transition-all hover:border-slate-300 hover:bg-slate-100 hover:text-black focus-visible:outline-2 focus-visible:outline-black md:hidden"
-            type="button"
-            onClick={() => setMenuOpen((open) => !open)}
-            aria-expanded={menuOpen}
-            aria-controls="mobile-navigation"
-            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+        {/* Navigation Links */}
+        <div className="flex items-center gap-3.5 sm:gap-6 md:gap-8 text-xs sm:text-[13px] font-medium text-slate-700">
+          <a
+            href="#about"
+            className="hover:text-black transition-colors"
           >
-            <span className="material-symbols-outlined text-xl!" aria-hidden="true">
-              {menuOpen ? "close" : "menu"}
-            </span>
-          </button>
+            About
+          </a>
+          <a
+            href="#skills"
+            className="hover:text-black transition-colors"
+          >
+            Skills
+          </a>
+          <a
+            href="#projects"
+            className="hover:text-black transition-colors"
+          >
+            Projects
+          </a>
         </div>
-      </nav>
 
-      {/* Mobile Navigation Dropdown */}
-      {menuOpen && (
-        <div
-          className="flex flex-col gap-3 border-b border-slate-200 bg-white/95 px-6 py-4 font-mono text-sm font-medium backdrop-blur-xl md:hidden"
-          id="mobile-navigation"
+        {/* Contact Pill Button */}
+        <a
+          href="#contact"
+          className="inline-flex items-center gap-1.5 bg-[#080d28] hover:bg-black text-white text-xs sm:text-[13px] font-semibold px-4 sm:px-5 py-2 rounded-full transition-all shadow-xs shrink-0"
         >
-          {navigation.map(({ label, href }) => (
-            <a
-              href={href}
-              key={href}
-              className="py-1.5 text-slate-600 transition-colors hover:text-black"
-              onClick={closeMenu}
-            >
-              {label}
-            </a>
-          ))}
-        </div>
-      )}
+          <span>Contact</span>
+          <span className="text-xs font-mono" aria-hidden="true">
+            ↗
+          </span>
+        </a>
+      </nav>
     </header>
   );
 }

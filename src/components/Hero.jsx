@@ -50,14 +50,24 @@ export const heroConfig = {
     },
   },
 
-  // CTA button link
+  // CTA button links
   cta: {
     label: "VIEW PROJECTS",
     href: "#projects",
   },
+  githubCta: {
+    label: "VIEW GITHUB",
+    href: profile.github || "https://github.com/Lyrothanak9",
+  },
 
   // Use the original portrait image
   portrait: profile.portrait,
+
+  // Image size configuration - adjust dimensions here anytime:
+  imageSize: {
+    maxWidth: "max-w-[340px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[480px] xl:max-w-[520px]",
+    maxHeight: "max-h-[480px] sm:max-h-[540px] lg:max-h-[600px] xl:max-h-[660px]",
+  },
 };
 
 /**
@@ -65,26 +75,26 @@ export const heroConfig = {
  */
 function HudCard({ children, className = "" }) {
   return (
-    <div className={`relative bg-white border border-slate-300/60 p-4 sm:p-5 transition-all duration-200 shadow-xs ${className}`}>
-      {/* Top-left corner bracket */}
+    <div className={`group relative bg-white border border-slate-300/80 p-4 sm:p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#0891b2]/40 shadow-xs ${className}`}>
+      {/* Top-left corner bracket ┌ */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 left-0 h-2.5 w-2.5 border-t-2 border-l-2 border-slate-700"
+        className="pointer-events-none absolute -top-[2px] -left-[2px] h-3 w-3 border-t-2 border-l-2 border-[#0891b2] transition-all duration-300 group-hover:scale-125 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(8,145,178,0.7)]"
       />
-      {/* Top-right corner bracket */}
+      {/* Top-right corner bracket ┐ */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute top-0 right-0 h-2.5 w-2.5 border-t-2 border-r-2 border-slate-700"
+        className="pointer-events-none absolute -top-[2px] -right-[2px] h-3 w-3 border-t-2 border-r-2 border-[#0891b2] transition-all duration-300 group-hover:scale-125 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(8,145,178,0.7)]"
       />
-      {/* Bottom-left corner bracket */}
+      {/* Bottom-left corner bracket └ */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-0 h-2.5 w-2.5 border-b-2 border-l-2 border-slate-700"
+        className="pointer-events-none absolute -bottom-[2px] -left-[2px] h-3 w-3 border-b-2 border-l-2 border-[#0891b2] transition-all duration-300 group-hover:scale-125 group-hover:-translate-x-0.5 group-hover:translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(8,145,178,0.7)]"
       />
-      {/* Bottom-right corner bracket */}
+      {/* Bottom-right corner bracket ┘ */}
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 right-0 h-2.5 w-2.5 border-b-2 border-r-2 border-slate-700"
+        className="pointer-events-none absolute -bottom-[2px] -right-[2px] h-3 w-3 border-b-2 border-r-2 border-[#0891b2] transition-all duration-300 group-hover:scale-125 group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(8,145,178,0.7)]"
       />
 
       {children}
@@ -95,22 +105,21 @@ function HudCard({ children, className = "" }) {
 export default function Hero() {
   return (
     <section
-      className="relative w-full pt-8 pb-4 md:pt-12 md:pb-6 lg:pt-14 lg:pb-6 text-slate-900"
+      className="relative w-full pt-14 pb-4 sm:pt-16 sm:pb-6 md:pt-18 lg:pt-20 lg:pb-8 text-slate-900 scroll-mt-20"
       id="home"
       aria-label="Hero Introduction"
     >
-      <div className="mx-auto flex w-[min(1280px,calc(100%-48px))] flex-col justify-between gap-12">
+      <div className="mx-auto flex w-[min(1280px,calc(100%-48px))] flex-col justify-between gap-8 sm:gap-10">
         {/* Main 3-column Hero Grid */}
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_1.1fr_0.9fr] lg:gap-8 xl:gap-12">
+        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_auto_1fr] lg:gap-8 xl:gap-12">
           
           {/* =========================================
-              LEFT COLUMN: Giant Name & Metadata
+              LEFT COLUMN: Name & Metadata
              ========================================= */}
-          <div className="flex flex-col justify-center">
-            {/* Old component name style */}
+          <div className="flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
             <h1
               id="hero-title"
-              className="text-5xl font-extrabold leading-[0.95] tracking-tight text-slate-900 sm:text-6xl lg:text-7xl"
+              className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold leading-tight tracking-tight text-slate-900"
             >
               {heroConfig.firstName}
               <br />
@@ -118,7 +127,7 @@ export default function Hero() {
             </h1>
 
             {/* Metadata list with teal icons */}
-            <ul className="mt-8 flex flex-col gap-3 font-mono text-[11px] font-semibold tracking-wider text-slate-700 sm:text-xs">
+            <ul className="mt-6 sm:mt-8 flex flex-col gap-3 font-mono text-[11px] font-semibold tracking-wider text-slate-700 sm:text-xs text-left">
               {heroConfig.metadata.map(({ icon, text }) => (
                 <li key={text} className="flex items-center gap-2.5">
                   <span
@@ -134,50 +143,25 @@ export default function Hero() {
           </div>
 
           {/* =========================================
-              CENTER COLUMN: Original Portrait Photo
+              CENTER COLUMN: Portrait Photo Centered
              ========================================= */}
-          <div className="relative flex justify-center self-center">
-            <div className="relative w-full max-w-[320px] sm:max-w-[360px] md:max-w-[390px] lg:max-w-[410px]">
-              {/* Portrait Container with subtle card frame */}
-              <div className="relative overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-3 shadow-xl transition-all duration-300 hover:shadow-2xl">
-                <img
-                  src={heroConfig.portrait}
-                  alt={`${heroConfig.firstName} ${heroConfig.lastName} portrait`}
-                  className="aspect-[4/4.8] w-full rounded-2xl bg-slate-100 object-cover object-center transition-transform duration-500 hover:scale-[1.02]"
-                  fetchPriority="high"
-                />
-
-                <div className="flex items-center justify-between px-2 pt-3 pb-1">
-                  <div className="flex items-center gap-2.5">
-                    <span
-                      className="grid h-8 w-8 place-items-center rounded-lg bg-black text-white"
-                      aria-hidden="true"
-                    >
-                      <span className="material-symbols-outlined text-base!">terminal</span>
-                    </span>
-                    <div>
-                      <strong className="block text-xs font-semibold text-slate-900">
-                        {profile.name}
-                      </strong>
-                      <small className="block text-[10px] text-slate-500">
-                        {profile.role}
-                      </small>
-                    </div>
-                  </div>
-
-                  <span className="inline-flex items-center gap-1.5 font-mono text-[10px] font-medium text-emerald-600">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                    ONLINE
-                  </span>
-                </div>
-              </div>
+          <div className="relative flex justify-center items-center self-center justify-self-center w-full">
+            <div className={`relative w-full ${heroConfig.imageSize.maxWidth} mx-auto flex justify-center`}>
+              <img
+                src={heroConfig.portrait}
+                alt={`${heroConfig.firstName} ${heroConfig.lastName} portrait`}
+                width={960}
+                height={1280}
+                className={`mx-auto w-full ${heroConfig.imageSize.maxHeight} h-auto object-contain object-bottom drop-shadow-md transition-transform duration-500 hover:scale-[1.02]`}
+                fetchPriority="high"
+              />
             </div>
           </div>
 
           {/* =========================================
               RIGHT COLUMN: HUD Spec Cards with Brackets
              ========================================= */}
-          <div className="flex flex-col gap-6 lg:max-w-[320px] xl:max-w-[340px]">
+          <div className="flex flex-col gap-6 w-full lg:max-w-[320px] xl:max-w-[340px] lg:ml-auto">
             {/* HUD Card 1: Currently */}
             <HudCard>
               <span className="block font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-[#0891b2]">
@@ -244,16 +228,29 @@ export default function Hero() {
         </div>
 
         {/* =========================================
-            BOTTOM BAR: View Projects CTA
+            BOTTOM BAR: View Projects & GitHub CTA
            ========================================= */}
-        <div className="mt-4 flex items-center justify-center border-t border-slate-200/80 pt-6">
-          {/* Centered: VIEW PROJECTS CTA Button */}
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-3 sm:gap-4 border-t border-slate-200/80 pt-6">
+          {/* VIEW PROJECTS CTA Button */}
           <a
             href={heroConfig.cta.href}
             className="inline-flex items-center gap-2 border border-slate-800 bg-transparent px-5 py-2.5 font-mono text-xs font-bold tracking-wider text-slate-900 uppercase transition-all duration-200 hover:bg-black hover:text-white hover:border-black"
           >
             <span>{heroConfig.cta.label}</span>
-            <span className="material-symbols-outlined text-sm!" aria-hidden="true">
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">
+              north_east
+            </span>
+          </a>
+
+          {/* VIEW GITHUB CTA Button */}
+          <a
+            href={heroConfig.githubCta.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border border-slate-800 bg-transparent px-5 py-2.5 font-mono text-xs font-bold tracking-wider text-slate-900 uppercase transition-all duration-200 hover:bg-black hover:text-white hover:border-black"
+          >
+            <span>{heroConfig.githubCta.label}</span>
+            <span className="material-symbols-outlined text-sm" aria-hidden="true">
               north_east
             </span>
           </a>

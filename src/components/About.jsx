@@ -32,9 +32,7 @@ export default function About() {
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 leading-none">
           ABOUT
         </h2>
-        <span className="font-mono text-xs uppercase tracking-[0.2em] text-slate-500 font-medium">
-          WHO I AM / PHNOM PENH, CAMBODIA
-        </span>
+      
       </div>
 
       {/* Main 2-Column Grid */}
@@ -59,28 +57,40 @@ export default function About() {
           </p>
         </div>
 
-        {/* Right Column: 2x2 Grid of Spec Cards with ┌ and ┘ brackets */}
+        {/* Right Column: 2x2 Grid of Spec Cards with Animated Teal Corner Brackets */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {aboutCards.map(({ label, value, id }) => (
             <div
               key={label}
               id={id}
-              className="relative flex flex-col justify-between border border-slate-200/90 bg-white p-4 sm:p-5 shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:shadow-sm"
+              className="group relative flex flex-col justify-between border border-slate-300/80 bg-white p-4 sm:p-5 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-[#0891b2]/40 scroll-mt-28"
             >
               {/* Top-left corner bracket ┌ */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute -top-[2px] -left-[2px] h-2.5 w-2.5 border-t-[2px] border-l-[2px] border-slate-900"
+                className="pointer-events-none absolute -top-[2px] -left-[2px] h-3 w-3 border-t-2 border-l-2 border-[#0891b2] transition-all duration-300 group-hover:scale-125 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(8,145,178,0.7)]"
+              />
+
+              {/* Top-right corner bracket ┐ */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-[2px] -right-[2px] h-3 w-3 border-t-2 border-r-2 border-[#0891b2] transition-all duration-300 group-hover:scale-125 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(8,145,178,0.7)]"
+              />
+
+              {/* Bottom-left corner bracket └ */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute -bottom-[2px] -left-[2px] h-3 w-3 border-b-2 border-l-2 border-[#0891b2] transition-all duration-300 group-hover:scale-125 group-hover:-translate-x-0.5 group-hover:translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(8,145,178,0.7)]"
               />
 
               {/* Bottom-right corner bracket ┘ */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute -bottom-[2px] -right-[2px] h-2.5 w-2.5 border-b-[2px] border-r-[2px] border-slate-900"
+                className="pointer-events-none absolute -bottom-[2px] -right-[2px] h-3 w-3 border-b-2 border-r-2 border-[#0891b2] transition-all duration-300 group-hover:scale-125 group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(8,145,178,0.7)]"
               />
 
               {/* Card Label */}
-              <span className="block font-mono text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+              <span className="block font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-[#0891b2] group-hover:text-[#066675] transition-colors">
                 {label}
               </span>
 
