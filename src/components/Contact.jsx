@@ -5,25 +5,25 @@ const contactLinks = [
   {
     type: "email",
     label: "EMAIL",
-    value: profile.email || "lyrothanak2005@gmail.com",
-    href: `mailto:${profile.email || "lyrothanak2005@gmail.com"}`,
+    value: "layheangrin@gmail.com",
+    href: `mailto:${profile.email || "layheangrin@gmail.com"}`,
   },
   {
     type: "github",
     label: "GITHUB",
-    value: "github.com/Lyrothanak9",
+    value: "layheangrin@gmail.com",
     href: profile.github || "https://github.com/Lyrothanak9",
   },
   {
     type: "linkedin",
     label: "LINKEDIN",
-    value: "linkedin.com/in/khuy-lyrothanak",
+    value: "layheangrin@gmail.com",
     href: "https://www.linkedin.com/in/khuy-lyrothanak",
   },
   {
     type: "facebook",
     label: "FACEBOOK",
-    value: "facebook.com/khuy.lyrothanak",
+    value: "layheangrin@gmail.com",
     href: "https://www.facebook.com/khuy.lyrothanak",
   },
 ];
@@ -32,13 +32,14 @@ function ChannelIcon({ type }) {
   if (type === "email") {
     return (
       <svg
-        className="w-4 h-4 text-white group-hover:text-[#38bdf8] transition-colors"
+        className="w-5 h-5 sm:w-6 sm:h-6 text-white group-hover:text-[#38bdf8] transition-colors"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
+        aria-hidden="true"
       >
         <circle cx="12" cy="12" r="4" />
         <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" />
@@ -48,13 +49,14 @@ function ChannelIcon({ type }) {
   if (type === "github") {
     return (
       <svg
-        className="w-4 h-4 fill-current text-white group-hover:text-[#38bdf8] transition-colors"
+        className="w-5 h-5 sm:w-6 sm:h-6 fill-current text-white group-hover:text-[#38bdf8] transition-colors"
         viewBox="0 0 24 24"
+        aria-hidden="true"
       >
         <path
           fillRule="evenodd"
           clipRule="evenodd"
-          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+          d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.6.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
         />
       </svg>
     );
@@ -62,19 +64,29 @@ function ChannelIcon({ type }) {
   if (type === "linkedin") {
     return (
       <svg
-        className="w-4 h-4 fill-current text-white group-hover:text-[#38bdf8] transition-colors"
+        className="w-5 h-5 sm:w-6 sm:h-6 fill-current text-white group-hover:text-[#38bdf8] transition-colors"
         viewBox="0 0 24 24"
+        aria-hidden="true"
       >
-        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c.96 0 1.74-.78 1.74-1.74 0-.96-.78-1.74-1.74-1.74-.96 0-1.74.78-1.74 1.74 0 .96.78 1.74 1.74 1.74m1.39 9.74v-8.37H5.07v8.37h2.78z" />
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M19 0H5a5 5 0 0 0-5 5v14a5 5 0 0 0 5 5h14a5 5 0 0 0 5-5V5a5 5 0 0 0-5-5zM8 19H5V8h3v11zM6.5 6.732a1.764 1.764 0 1 1 0-3.528 1.764 1.764 0 0 1 0 3.528zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765C14.396 7.179 20 6.988 20 12.243V19z"
+        />
       </svg>
     );
   }
   return (
     <svg
-      className="w-4 h-4 fill-current text-white group-hover:text-[#38bdf8] transition-colors"
+      className="w-5 h-5 sm:w-6 sm:h-6 fill-current text-white group-hover:text-[#38bdf8] transition-colors"
       viewBox="0 0 24 24"
+      aria-hidden="true"
     >
-      <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+      />
     </svg>
   );
 }
@@ -177,89 +189,66 @@ export default function Contact() {
             </p>
           </div>
 
-          {/* Right Column: Contact Links Framed in HUD Bracket Box */}
-          <div className="group/box relative border border-white/10 bg-[#0a0f3e]/40 backdrop-blur-xs p-3 sm:p-5 transition-all duration-300 hover:border-[#38bdf8]/50 hover:bg-[#0d1452]/60 hover:shadow-[0_0_24px_rgba(56,189,248,0.15)]">
-            {/* Top-left corner bracket ┌ */}
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -top-[2px] -left-[2px] h-3.5 w-3.5 border-t-2 border-l-2 border-white/40 transition-all duration-300 group-hover/box:border-[#38bdf8] group-hover/box:scale-125 group-hover/box:-translate-x-0.5 group-hover/box:-translate-y-0.5 group-hover/box:drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]"
-            />
+          {/* Right Column: 4 Individual Channel Cards matching About page card style & animation */}
+          <div className="flex flex-col gap-3 sm:gap-3.5 w-full max-w-lg lg:max-w-none">
+            {contactLinks.map(({ type, value, href }) => (
+              <a
+                key={type}
+                href={href}
+                target={href.startsWith("http") ? "_blank" : undefined}
+                rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="group relative flex items-center justify-between py-3.5 px-4 sm:py-4 sm:px-5 border border-white/10 bg-[#0a0f3e]/40 backdrop-blur-xs transition-all duration-300 hover:-translate-y-1 hover:border-[#38bdf8]/50 hover:bg-[#0d1452]/60 hover:shadow-[0_0_24px_rgba(56,189,248,0.15)]"
+              >
+                {/* Top-left corner bracket ┌ */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -top-[2px] -left-[2px] h-3 w-3 border-t-2 border-l-2 border-white/40 transition-all duration-300 group-hover:border-[#38bdf8] group-hover:scale-125 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]"
+                />
 
-            {/* Top-right corner bracket ┐ */}
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -top-[2px] -right-[2px] h-3.5 w-3.5 border-t-2 border-r-2 border-white/40 transition-all duration-300 group-hover/box:border-[#38bdf8] group-hover/box:scale-125 group-hover/box:translate-x-0.5 group-hover/box:-translate-y-0.5 group-hover/box:drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]"
-            />
+                {/* Top-right corner bracket ┐ */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -top-[2px] -right-[2px] h-3 w-3 border-t-2 border-r-2 border-white/40 transition-all duration-300 group-hover:border-[#38bdf8] group-hover:scale-125 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]"
+                />
 
-            {/* Bottom-left corner bracket └ */}
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -bottom-[2px] -left-[2px] h-3.5 w-3.5 border-b-2 border-l-2 border-white/40 transition-all duration-300 group-hover/box:border-[#38bdf8] group-hover/box:scale-125 group-hover/box:-translate-x-0.5 group-hover/box:translate-y-0.5 group-hover/box:drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]"
-            />
+                {/* Bottom-left corner bracket └ */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -bottom-[2px] -left-[2px] h-3 w-3 border-b-2 border-l-2 border-white/40 transition-all duration-300 group-hover:border-[#38bdf8] group-hover:scale-125 group-hover:-translate-x-0.5 group-hover:translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]"
+                />
 
-            {/* Bottom-right corner bracket ┘ */}
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute -bottom-[2px] -right-[2px] h-3.5 w-3.5 border-b-2 border-r-2 border-white/40 transition-all duration-300 group-hover/box:border-[#38bdf8] group-hover/box:scale-125 group-hover/box:translate-x-0.5 group-hover/box:translate-y-0.5 group-hover/box:drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]"
-            />
+                {/* Bottom-right corner bracket ┘ */}
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -bottom-[2px] -right-[2px] h-3 w-3 border-b-2 border-r-2 border-white/40 transition-all duration-300 group-hover:border-[#38bdf8] group-hover:scale-125 group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]"
+                />
 
-            {/* Intermediate Notch Ticks on Left and Right Sides */}
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute top-1/4 -left-[2px] h-2.5 w-1.5 border-t border-b border-l border-white/30"
-            />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute top-1/4 -right-[2px] h-2.5 w-1.5 border-t border-b border-r border-white/30"
-            />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute top-1/2 -left-[2px] h-2.5 w-1.5 border-t border-b border-l border-white/30"
-            />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute top-1/2 -right-[2px] h-2.5 w-1.5 border-t border-b border-r border-white/30"
-            />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute top-3/4 -left-[2px] h-2.5 w-1.5 border-t border-b border-l border-white/30"
-            />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute top-3/4 -right-[2px] h-2.5 w-1.5 border-t border-b border-r border-white/30"
-            />
-
-            {/* Channel Link Rows */}
-            <div className="flex flex-col divide-y divide-white/5">
-              {contactLinks.map(({ type, value, href }) => (
-                <a
-                  key={type}
-                  href={href}
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="group flex items-center justify-between py-4 px-3 sm:px-4 rounded-lg transition-all duration-200 hover:bg-white/[0.05]"
-                >
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    <span
-                      className="grid h-8 w-8 flex-none place-items-center rounded-full bg-white/5 border border-white/10 text-white group-hover:border-[#38bdf8]/60 group-hover:bg-[#38bdf8]/10 transition-all"
-                      aria-hidden="true"
-                    >
-                      <ChannelIcon type={type} />
-                    </span>
-                    <span className="font-mono text-xs sm:text-sm font-medium text-white group-hover:text-[#38bdf8] transition-colors truncate max-w-[210px] sm:max-w-none">
-                      {value}
-                    </span>
-                  </div>
-
-                  <span
-                    className="font-mono text-sm sm:text-base text-slate-400 transition-all duration-200 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-0.5"
-                    aria-hidden="true"
-                  >
-                    ↗
+                {/* Left side: Icon + Text */}
+                <div className="flex items-center gap-4 sm:gap-5 min-w-0">
+                  <span className="flex-none flex items-center justify-center transition-colors duration-300 group-hover:text-[#38bdf8]" aria-hidden="true">
+                    <ChannelIcon type={type} />
                   </span>
-                </a>
-              ))}
-            </div>
+                  <span className="font-sans text-sm sm:text-base font-normal tracking-wide text-white transition-colors duration-300 truncate">
+                    {value}
+                  </span>
+                </div>
+
+                {/* Right side: ↗ Northeast Arrow */}
+                <svg
+                  className="w-4 h-4 sm:w-5 sm:h-5 flex-none text-white/80 transition-all duration-300 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </a>
+            ))}
           </div>
         </div>
 

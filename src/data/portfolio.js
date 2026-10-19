@@ -1,7 +1,7 @@
 export const profile = {
   name: "Khuy Lyrothanak",
   role: "Software Engineer",
-  email: "lyrothanak2005@gmail.com",
+  email: "layheangrin@gmail.com",
   phone: "010 484 816",
   location: "Phnom Penh, Cambodia",
   portrait: "/assets/avatar.png",
