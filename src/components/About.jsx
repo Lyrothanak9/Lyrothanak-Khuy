@@ -128,34 +128,34 @@ export default function About() {
               <div
                 key={label}
                 id={id}
-                className="group relative flex flex-col justify-between border border-white/10 bg-[#0a0f3e]/40 backdrop-blur-xs p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#38bdf8]/50 hover:bg-[#0d1452]/60 hover:shadow-[0_0_24px_rgba(56,189,248,0.15)] scroll-mt-28"
+                className="group relative flex flex-col justify-between border border-white/10 bg-[#0a0f3e]/40 backdrop-blur-xs p-5 sm:p-6 hover:border-[#38bdf8]/50 hover:bg-[#0d1452]/60 hover:shadow-[0_0_24px_rgba(56,189,248,0.15)] scroll-mt-28"
               >
                 {/* Top-left corner bracket ┌ */}
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute -top-[2px] -left-[2px] h-3 w-3 border-t-2 border-l-2 border-white/40 transition-all duration-300 group-hover:border-[#38bdf8] group-hover:scale-125 group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]"
+                  className="pointer-events-none absolute -top-0.5 -left-0.5 h-3 w-3 border-t-2 border-l-2 border-white/40 group-hover:border-[#38bdf8]"
                 />
 
                 {/* Top-right corner bracket ┐ */}
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute -top-[2px] -right-[2px] h-3 w-3 border-t-2 border-r-2 border-white/40 transition-all duration-300 group-hover:border-[#38bdf8] group-hover:scale-125 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]"
+                  className="pointer-events-none absolute -top-0.5 -right-0.5 h-3 w-3 border-t-2 border-r-2 border-white/40 group-hover:border-[#38bdf8]"
                 />
 
                 {/* Bottom-left corner bracket └ */}
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute -bottom-[2px] -left-[2px] h-3 w-3 border-b-2 border-l-2 border-white/40 transition-all duration-300 group-hover:border-[#38bdf8] group-hover:scale-125 group-hover:-translate-x-0.5 group-hover:translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]"
+                  className="pointer-events-none absolute -bottom-0.5 -left-0.5 h-3 w-3 border-b-2 border-l-2 border-white/40 group-hover:border-[#38bdf8]"
                 />
 
                 {/* Bottom-right corner bracket ┘ */}
                 <span
                   aria-hidden="true"
-                  className="pointer-events-none absolute -bottom-[2px] -right-[2px] h-3 w-3 border-b-2 border-r-2 border-white/40 transition-all duration-300 group-hover:border-[#38bdf8] group-hover:scale-125 group-hover:translate-x-0.5 group-hover:translate-y-0.5 group-hover:drop-shadow-[0_0_6px_rgba(56,189,248,0.8)]"
+                  className="pointer-events-none absolute -bottom-0.5 -right-0.5 h-3 w-3 border-b-2 border-r-2 border-white/40 group-hover:border-[#38bdf8]"
                 />
 
                 {/* Amber / Golden Tag Label */}
-                <span className="block font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-[#f59e0b] group-hover:text-[#fbbf24] transition-colors">
+                <span className="block font-mono text-[11px] font-bold uppercase tracking-[0.22em] text-[#f59e0b]">
                   {label}
                 </span>
 

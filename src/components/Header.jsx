@@ -2,9 +2,9 @@ import { profile } from "../data/portfolio.js";
 
 export default function Header() {
   return (
-    <header className="fixed top-5 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
+    <header className="fixed top-3 sm:top-5 left-0 right-0 z-50 flex justify-center px-2.5 sm:px-4 pointer-events-none">
       <nav
-        className="pointer-events-auto flex items-center justify-between gap-3 sm:gap-6 md:gap-10 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-full shadow-[0_12px_36px_rgba(0,0,0,0.08)] border border-slate-100/90 max-w-[720px] w-full transition-all"
+        className="pointer-events-auto flex items-center justify-between gap-2 sm:gap-6 md:gap-10 px-3 sm:px-6 md:px-8 py-2 sm:py-2.5 bg-white/95 backdrop-blur-md rounded-full shadow-[0_12px_36px_rgba(0,0,0,0.08)] border border-slate-100/90 max-w-[720px] w-full transition-all"
         aria-label="Main Navigation"
       >
         {/* Name / Brand */}

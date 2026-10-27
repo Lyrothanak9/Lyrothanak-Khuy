@@ -1,35 +1,52 @@
 import SectionHeading from "./SectionHeading.jsx";
-import { skills } from "../data/portfolio.js";
+import SkillCard from "./SkillCard.jsx";
+
+const skillCategories = [
+  {
+    title: "Languages",
+    skills: ["JavaScript", "TypeScript", "Python", "PHP", "Kotlin", "HTML5", "CSS3"],
+  },
+  {
+    title: "Frameworks & Libraries",
+    skills: ["React", "Flutter", "Tailwind CSS"],
+  },
+  {
+    title: "Databases",
+    skills: ["PostgreSQL", "MySQL", "Supabase"],
+  },
+  {
+    title: "Tools & Platforms",
+    skills: ["Git", "GitHub", "Figma", "Linux"],
+  },
+];
 
 export default function Skills() {
   return (
     <section
-      className="mx-auto w-[min(1160px,calc(100%-48px))] border-t border-slate-200/80 py-20 scroll-mt-20"
+      className="mx-auto w-[min(1160px,calc(100%-48px))] border-t border-slate-200/80 py-16 sm:py-20 scroll-mt-20"
       id="skills"
     >
       <SectionHeading eyebrow="Tools of the trade">Technical skills</SectionHeading>
-      <p className="-mt-6 mb-8 text-sm text-slate-600">
-        Technologies I use to turn ideas into working software.
+      <p className="-mt-6 mb-12 text-sm text-slate-600">
+        Technologies, frameworks, and databases I use to build robust modern software.
       </p>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {skills.map(({ name, icon }, index) => (
-          <article
-            className="group flex items-center gap-4 rounded-2xl border border-slate-200/80 bg-slate-50 p-5 shadow-[0_10px_25px_-5px_rgba(15,23,42,0.08),0_6px_10px_-6px_rgba(15,23,42,0.05)] transition-all duration-200 hover:-translate-y-1 hover:border-black/30 hover:shadow-xl"
-            key={name}
-          >
-            <span className="font-mono text-xs font-semibold text-slate-400">
-              0{index + 1}
-            </span>
-            <span
-              className="grid h-11 w-11 flex-none place-items-center rounded-xl bg-slate-100 text-slate-800 transition-colors group-hover:bg-black group-hover:text-white"
-              aria-hidden="true"
-            >
-              <span className="material-symbols-outlined text-xl">{icon}</span>
-            </span>
-            <h3 className="text-sm font-semibold text-slate-900">
-              {name}
+
+      {/* Categorized Skills Grid */}
+      <div className="flex flex-col gap-10 sm:gap-12">
+        {skillCategories.map(({ title, skills }) => (
+          <div key={title} className="flex flex-col gap-3.5 sm:gap-4">
+            {/* Category Title */}
+            <h3 className="font-sans text-base sm:text-lg font-bold tracking-tight text-slate-900">
+              {title}
             </h3>
-          </article>
+
+            {/* Pill Badges Container using extracted SkillCard */}
+            <div className="flex flex-wrap gap-2.5 sm:gap-3">
+              {skills.map((name) => (
+                <SkillCard key={name} name={name} />
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </section>

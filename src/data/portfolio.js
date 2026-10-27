@@ -1,11 +1,12 @@
 export const profile = {
   name: "Khuy Lyrothanak",
   role: "Software Engineer",
-  email: "layheangrin@gmail.com",
+  email: "lyrothanakkhuy9@gmail.com",
   phone: "010 484 816",
   location: "Phnom Penh, Cambodia",
   portrait: "/assets/avatar.png",
   github: "https://github.com/Lyrothanak9",
+  gitlab: "https://gitlab.com/Lyrothanak9",
 };
 
 export const skills = [
@@ -19,22 +20,6 @@ export const skills = [
 ];
 
 export const projects = [
-  {
-    name: "Dino Run 3D",
-    tagline: "THREE.JS · 2026",
-    category: "3D GAME",
-    image: "/assets/dino-run-3d.png",
-    description:
-      "A fully 3D reimagining of the classic endless runner game. Jump, duck, and dodge obstacles as you speed through the desert.",
-    technologies: ["Three.js", "JavaScript", "WebGL", "Vite"],
-    liveUrl: "https://github.com/Lyrothanak9",
-    repoUrl: "https://github.com/Lyrothanak9",
-    highlights: [
-      "Dynamic procedural terrain generation with obstacle collision meshes",
-      "Custom vertex & fragment shaders for desert lighting and heat distortion",
-      "Smooth 60 FPS mobile and desktop WebGL performance",
-    ],
-  },
   {
     name: "Find Book",
     tagline: "REACT JS · 2024",
